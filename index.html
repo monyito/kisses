@@ -1,257 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kisses a Decade & Eight – 18th Debut</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kisses – A Decade & Eight</title>
 
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700;900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-
-:root{
---primary:#8B5CF6;
---secondary:#EC4899;
---gold:#D4AF37;
---dark:#3F2C5C;
-}
-
 body{
-font-family:'Poppins',sans-serif;
-color:var(--dark);
-background:#FFFBF0;
-line-height:1.6;
+font-family:Poppins, sans-serif;
+background:linear-gradient(180deg,#2a0a3d,#4b0f6b,#ff4da6);
+color:white;
 overflow-x:hidden;
+scroll-behavior:smooth;
 }
 
-/* ===== HERO WITH BACKGROUND IMAGE ===== */
-.hero{
-min-height:100vh;
-background:
-linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),
-url("4.jpeg") center/cover no-repeat;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:2rem;
+/* ✨ GLITTER BACKGROUND */
+body::before{
+content:"";
+position:fixed;
+width:200%;
+height:200%;
+background-image:radial-gradient(#ffffff88 1px, transparent 1px);
+background-size:80px 80px;
+animation:glitter 60s linear infinite;
+z-index:-2;
+}
+@keyframes glitter{
+from{transform:translateY(0)}
+to{transform:translateY(-600px)}
 }
 
-.hero-content{
-max-width:900px;
-color:#fff;
+/* 🌸 FALLING PETALS */
+.petal{
+position:fixed;
+top:-10px;
+width:12px;
+height:12px;
+background:radial-gradient(circle,#ffb3ec,#ff4da6);
+border-radius:50%;
+opacity:.8;
+animation:fall linear infinite;
+z-index:-1;
 }
-
-.hero h1{
-font-family:'Great Vibes',cursive;
-font-size:clamp(3rem,8vw,5rem);
-margin-bottom:1rem;
-color:#fff;
-}
-
-.subtitle{
-font-family:'Playfair Display',serif;
-font-size:clamp(1.2rem,3vw,1.6rem);
-color:#FDE68A;
-letter-spacing:0.08em;
-margin-bottom:2rem;
-}
-
-.divider{
-display:flex;
-align-items:center;
-gap:1rem;
-margin:2.5rem 0;
-}
-
-.divider-line{
-flex:1;
-height:1px;
-background:linear-gradient(to right,transparent,var(--gold),transparent);
-}
-
-.divider-icon{
-color:var(--gold);
-font-size:1.4rem;
-}
-
-.occasion{
-font-size:1.1rem;
-opacity:0.95;
+@keyframes fall{
+to{transform:translateY(110vh) rotate(360deg);}
 }
 
 /* ===== SECTIONS ===== */
-section{
-padding:4rem 1.5rem;
-}
+section{padding:70px 20px;text-align:center}
+h1,h2{font-family:'Great Vibes',cursive}
+h2{font-size:2.3rem;margin-bottom:20px;color:#ffd6ff}
 
-.section-title{
+/* ===== INVITE PAGE ===== */
+.invite{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 text-align:center;
-font-family:'Playfair Display',serif;
-font-size:clamp(2rem,5vw,2.8rem);
-margin-bottom:3rem;
-color:var(--primary);
+background:radial-gradient(circle,#ff8bd1,#6b21a8);
+animation:fadeIn 2s ease-in;
 }
-
-/* ===== GALLERY ===== */
-.gallery-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:1.5rem;
-max-width:1100px;
-margin:0 auto;
-}
-
-.gallery-item{
-border-radius:1rem;
-overflow:hidden;
-box-shadow:0 20px 40px rgba(0,0,0,.15);
-}
-
-.gallery-item img{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block;
-}
-
-/* ===== DETAILS ===== */
-.details-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:2.5rem;
-max-width:900px;
-margin:0 auto;
-text-align:center;
-}
-
-.detail-item h3{
-font-family:'Playfair Display',serif;
-color:var(--secondary);
-margin-bottom:.5rem;
-}
-
-.detail-item p span{
-display:block;
-font-weight:600;
-}
-
-/* ===== RSVP ===== */
-.rsvp-section{
-background:linear-gradient(to bottom,#fff,rgba(139,92,246,.05));
-text-align:center;
-}
-
+.invite h1{font-size:3.5rem}
+.invite p{font-size:1.2rem;margin:10px 0}
 .btn{
-padding:1rem 2rem;
-font-size:1rem;
-border-radius:.5rem;
+margin-top:20px;
+padding:12px 25px;
 border:none;
+border-radius:30px;
+background:#fff;
+color:#6b21a8;
+font-weight:600;
 cursor:pointer;
-transition:.3s;
 }
 
-.btn-primary{
-background:var(--primary);
-color:#fff;
+/* ===== HERO ===== */
+.hero{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+.countdown{display:flex;gap:10px;margin-top:20px}
+.time-box{
+background:#ffffff22;
+padding:10px;
+border-radius:12px;
+min-width:60px;
 }
 
-.btn-primary:hover{opacity:.9}
-
-.btn-secondary{
-background:transparent;
-border:2px solid var(--primary);
-color:var(--primary);
+/* CARDS */
+.card{
+background:#ffffff11;
+backdrop-filter:blur(10px);
+margin:10px auto;
+padding:15px;
+border-radius:15px;
+max-width:400px;
+box-shadow:0 0 15px #ff7edb88;
+animation:float 4s ease-in-out infinite;
+}
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
 }
 
-/* ===== FOOTER ===== */
-footer{
-padding:2rem;
-text-align:center;
-background:rgba(139,92,246,.05);
-font-size:.9rem;
+/* GALLERY */
+.gallery{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+}
+.gallery img{
+width:100%;
+border-radius:15px;
+box-shadow:0 0 15px #ffb3ec;
 }
 
-/* ===== MOBILE OPTIMIZATION ===== */
-@media(max-width:480px){
-.hero{min-height:85vh}
-.hero h1{font-size:3rem}
+footer{padding:30px 20px;background:#00000044;font-size:14px}
+
+@media(min-width:768px){
+.gallery{grid-template-columns:repeat(5,1fr)}
 }
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<section class="hero">
-<div class="hero-content">
+<!-- 🌸 PETALS GENERATED BY JS -->
+<script>
+for(let i=0;i<25;i++){
+let petal=document.createElement("div");
+petal.className="petal";
+petal.style.left=Math.random()*100+"vw";
+petal.style.animationDuration=(5+Math.random()*5)+"s";
+petal.style.opacity=Math.random();
+document.body.appendChild(petal);
+}
+</script>
+
+<!-- ✨ INVITATION PAGE -->
+<section class="invite">
+<p>You are invited to</p>
 <h1>Kisses</h1>
-<h1> A</h1>
-<h1>Decade & Eight</h1>
-<p class="subtitle">A Celebration of Elegance & Grace</p>
+<h1>A Decade & Eight</h1>
+<p>A Magical 18th Celebration</p>
+<a href="#main"><button class="btn">Enter the Celebration ✨</button></a>
+</section>
 
-<div class="divider">
-<div class="divider-line"></div>
-<span class="divider-icon">✦</span>
-<div class="divider-line"></div>
-</div>
+<!-- MAIN PAGE -->
+<section id="main" class="hero">
+<h2>Enchanted Eighteen</h2>
+<p>A Celebration of Elegance & Womanhood</p>
 
-<p class="occasion">Celebrating the 18th Birthday of a Beautiful Soul</p>
+<div class="countdown">
+<div class="time-box"><span id="days"></span><br>Days</div>
+<div class="time-box"><span id="hours"></span><br>Hrs</div>
+<div class="time-box"><span id="minutes"></span><br>Min</div>
+<div class="time-box"><span id="seconds"></span><br>Sec</div>
 </div>
 </section>
 
-<!-- GALLERY -->
 <section>
-<h2 class="section-title">A Glimpse of Elegance</h2>
-<div class="gallery-grid">
-<div class="gallery-item"><img src="1.jpeg"></div>
-<div class="gallery-item"><img src="2.jpeg"></div>
-<div class="gallery-item"><img src="3.jpeg"></div>
-<div class="gallery-item"><img src="4.jpeg"></div>
+<h2>Gallery</h2>
+<div class="gallery">
+<img src="1.jpeg"><img src="2.jpeg"><img src="3.jpeg"><img src="4.jpeg">
 </div>
 </section>
 
-<!-- DETAILS -->
 <section>
-<h2 class="section-title">Event Details</h2>
-<div class="details-grid">
-<div class="detail-item">
-<h3>📅 Date & Time</h3>
-<p><span>February 15, 2026</span>5:00 PM</p>
+<h2>18th Treasures</h2>
+<div class="card" style="text-align:left;font-size:14px;line-height:1.8">
+1. Marlon Viola<br>
+2. Charito Agapito<br>
+3. Betty Viola<br>
+4. Jennifer Sambo<br>
+5. Doris Bogas<br>
+6. Gelie Maniquiz<br>
+7. Jessica Mae Sabio<br>
+8. Nikka Camille Ranin<br>
+9. Carl Agapito<br>
+10. Grandma Laleth Bogas<br>
+11. Emelyn Bogas Malonzo<br>
+12. Andrea Fuerte<br>
+13. Sir Win Michael Fausto<br>
+14. Jimma Rodrigo<br>
+15. Grandma Lola Noemi Bogas<br>
+16. Grandma Teresita Ranin<br>
+17. Grandma Lalaine Ranin<br>
+18. Mother Alhaine Bogas
 </div>
-<div class="detail-item">
-<h3>📍 Venue</h3>
-<p><span>Makoy’s Naga City</span>Catering & Function Hall</p>
+</section>
+<section>
+<h2>18 Candles</h2>
+<div class="card" style="text-align:left;font-size:14px;line-height:1.8">
+1. Khyle Brianna Bogas<br>
+2. Kitkat Nomellaine Bogas<br>
+3. Sabrina Jaena Sambo<br>
+4. Hershey Marri Benaid<br>
+5. Athens Delos Santos<br>
+6. Julia Aven<br>
+7. Avril Brethany Aven<br>
+8. Anjonette Viola<br>
+9. Nikki Matos<br>
+10. Janine Borromeo<br>
+11. Arianne Meimban<br>
+12. Alynna Monte<br>
+13. Marion Imperial<br>
+14. Feyh Celso<br>
+15. Jelarry Lagarde<br>
+16. AJ Lazaro<br>
+17. KC Tejares<br>
+18. Stella Gianan
 </div>
+</section>
+<section>
+<h2>18 Roses</h2>
+<div class="card" style="text-align:left;font-size:14px;line-height:1.8">
+1. Aldred Aven<br>
+2. Jad Linnux Bogas<br>
+3. Rakkan Sambo<br>
+4. Paris Aven<br>
+5. Pao Aven<br>
+6. Emman Agapito<br>
+7. Bradley Viola<br>
+8. Kyle Penohermoso<br>
+9. Fritz Contreras<br>
+10. Marlo Ballesteros<br>
+11. David Relon<br>
+12. Ardie Aven<br>
+13. Aldrin Aven<br>
+14. Prospero Bogas<br>
+15. Wendel Benaid<br>
+16. Kristoff Bogas<br>
+17. Grandfather Cesar Maniquiz<br>
+18. Father Noel Bogas
+</div>
+</section>
+<section>
+<h2>18 Blue Bills</h2>
+<div class="card" style="text-align:left;font-size:14px;line-height:1.8">
+1. Cesar Marlon Maniquiz<br>
+2. Eng. Dan Agapito<br>
+3. Sev Viola<br>
+4. Cathy Rebancos<br>
+5. Doc. Maria Lucilia Villegas<br>
+6. Robert John Ranin<br>
+7. Atty. Mae Ellen Aven<br>
+8. Mafet Limbo<br>
+9. Ninang Toneth Layson Villanueva<br>
+10. Mrs. Ada Tiu<br>
+11. Doc. Mecka Viola<br>
+12. Magdalena Papillera Pante<br>
+13. Kix Cacai Bogas & Neng<br>
+14. Mrs. Haidee Marcial & Mr. Elmer Muena<br>
+15. Roberto Ranin Jr.<br>
+16. John Carlos Garay<br>
+17. Rachel Saavedra<br>
+18. Jubel Santos Penion
+</div>
+</section>
+<section>
+<h2>18 Shots</h2>
+<div class="card" style="text-align:left;font-size:14px;line-height:1.8">
+1. KC Tejares<br>
+2. Stella Gianan<br>
+3. Marion Imperial<br>
+4. Alynna Monte<br>
+5. Arianne Meimban<br>
+6. Feyh Celso<br>
+7. Janine Borromeo<br>
+8. Nikki Matos<br>
+9. Jelarry Lagarde<br>
+10. Yeizha Nagrampa<br>
+11. Marlo Ballesteros<br>
+12. Fritz Contreras<br>
+13. Andrei Hebrio<br>
+14. George Peña<br>
+15. Kirby Endrano<br>
+16. David Relon<br>
+17. Avril Aven<br>
+18. Julia Aven
 </div>
 </section>
 
-<!-- RSVP -->
-<section class="rsvp-section">
-  <h2 class="section-title">We Would Love Your Presence</h2>
-  <p>Please confirm your attendance by messaging us on Facebook.</p>
-  <br>
+<section>
+<h2>Event Details</h2>
 
-  <a href="https://m.me/jhunalaine.bogas.7" target="_blank" rel="noopener">
-    <button class="btn btn-primary">✓ I’ll Be There</button>
-  </a>
+<div class="card" style="line-height:1.8;font-size:15px">
 
-  <br><br>
+📅 <b>Date:</b><br>
+February 15, 2026<br><br>
 
-  <a href="https://m.me/jhunalaine.bogas.7" target="_blank" rel="noopener">
-    <button class="btn btn-secondary">✗ Unable to Attend</button>
-  </a>
+⏰ <b>Time:</b><br>
+5:00 PM<br><br>
+
+📍 <b>Venue:</b><br>
+Makoy’s Naga City Catering & Function Hall<br>
+<a href="https://maps.app.goo.gl/W8aCoZmQbKbX6h9GA" target="_blank" style="color:#ffd6ff;text-decoration:underline;">
+View Location on Map
+</a>
+
+</div>
+</section>
+
+<section>
+<h2>RSVP</h2>
+
+<div class="card" style="line-height:1.8;font-size:15px">
+
+👤 <b>Facebook:</b><br>
+Kaye Bogas<br><br>
+
+📧 <b>Email:</b><br>
+<a href="mailto:kayebogz10@gmail.com" style="color:#ffd6ff;text-decoration:underline;">
+kayebogz10@gmail.com
+</a><br><br>
+
+📱 <b>Contact Numbers:</b><br>
+<a href="tel:09995626022" style="color:#ffd6ff;text-decoration:underline;">0999 562 6022</a><br>
+<a href="tel:09392752389" style="color:#ffd6ff;text-decoration:underline;">0939 275 2389</a>
+
+</div>
 </section>
 
 
-<footer>
-<p>With love and anticipation, we invite you to celebrate this milestone.</p>
-<p>© 2026 Kisses a Decade & Eight</p>
-</footer>
+
+<footer>✨ A night of magic, grace, and unforgettable memories ✨</footer>
+
+<script>
+const eventDate = new Date("Feb 15, 2026 17:00:00").getTime();
+setInterval(()=>{
+let now=new Date().getTime();
+let diff=eventDate-now;
+document.getElementById("days").innerText=Math.floor(diff/(1000*60*60*24));
+document.getElementById("hours").innerText=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+document.getElementById("minutes").innerText=Math.floor((diff%(1000*60*60))/(1000*60));
+document.getElementById("seconds").innerText=Math.floor((diff%(1000*60))/1000);
+},1000);
+</script>
 
 </body>
 </html>
